@@ -1,0 +1,31 @@
+{
+  "transactions": [
+    { "id": "1", "date": "2025-05-01", "merchant": "Jaya Grocer", "category": "Food", "amount": -45.80, "note": "" },
+    { "id": "2", "date": "2025-05-02", "merchant": "Touch 'n Go Reload", "category": "Transport", "amount": -50.00, "note": "" },
+    { "id": "3", "date": "2025-05-03", "merchant": "Salary", "category": "Income", "amount": 3200.00, "note": "May salary" },
+    { "id": "4", "date": "2025-05-04", "merchant": "Uniqlo", "category": "Shopping", "amount": -129.90, "note": "" },
+    { "id": "5", "date": "2025-05-05", "merchant": "Grab Food", "category": "Food", "amount": -22.50, "note": "" },
+    { "id": "6", "date": "2025-05-06", "merchant": "Netflix", "category": "Subscriptions", "amount": -17.00, "note": "" },
+    { "id": "7", "date": "2025-05-07", "merchant": "Watsons", "category": "Health", "amount": -38.40, "note": "" },
+    { "id": "8", "date": "2025-05-08", "merchant": "myTukar Parking", "category": "Transport", "amount": -6.00, "note": "" },
+    { "id": "9", "date": "2025-05-09", "merchant": "Freelance Payment", "category": "Income", "amount": 500.00, "note": "Logo design" },
+    { "id": "10", "date": "2025-05-10", "merchant": "Aeon Big", "category": "Food", "amount": -91.20, "note": "" },
+    { "id": "11", "date": "2025-05-11", "merchant": "Celcom Postpaid", "category": "Subscriptions", "amount": -68.00, "note": "" },
+    { "id": "12", "date": "2025-05-12", "merchant": "Guardian", "category": "Health", "amount": -24.00, "note": "" },
+    { "id": "13", "date": "2025-05-13", "merchant": "Grab Car", "category": "Transport", "amount": -18.50, "note": "" },
+    { "id": "14", "date": "2025-05-14", "merchant": "Popular Bookstore", "category": "Shopping", "amount": -55.00, "note": "" },
+    { "id": "15", "date": "2025-05-15", "merchant": "Bonus", "category": "Income", "amount": 800.00, "note": "Performance bonus" },
+    { "id": "16", "date": "2025-05-16", "merchant": "Tealive", "category": "Food", "amount": -12.90, "note": "" },
+    { "id": "17", "date": "2025-05-17", "merchant": "Petron Fuel", "category": "Transport", "amount": -60.00, "note": "" },
+    { "id": "18", "date": "2025-05-18", "merchant": "Shopee", "category": "Shopping", "amount": -43.00, "note": "" },
+    { "id": "19", "date": "2025-05-19", "merchant": "Spotify", "category": "Subscriptions", "amount": -8.90, "note": "" },
+    { "id": "20", "date": "2025-05-20", "merchant": "KPJ Clinic", "category": "Health", "amount": -80.00, "note": "" }
+  ],
+  "budgets": [
+    { "id": "1", "category": "Food", "limit": 400.00 },
+    { "id": "2", "category": "Transport", "limit": 200.00 },
+    { "id": "3", "category": "Shopping", "limit": 300.00 },
+    { "id": "4", "category": "Subscriptions", "limit": 150.00 },
+    { "id": "5", "category": "Health", "limit": 200.00 }
+  ]
+}
