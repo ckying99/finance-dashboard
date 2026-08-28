@@ -1,31 +1,43 @@
 import { useState } from 'react'
 import useAddTransaction from './store/useAddTransaction'
 
-const AddTransactionForm = () => {
-    const [formData, setFormData] = useState({
-        date: new Date().toISOString().split('T')[0],
-        merchant: '',
-        category: '',
-        amount: '',
-        note: '',
-    })
+const emptyForm = () => ({
+    date: new Date().toISOString().split('T')[0],
+    merchant: '',
+    category: '',
+    amount: '',
+    note: '',
+})
 
+const AddTransactionForm = () => {
+    const [formData, setFormData] = useState(emptyForm)
+    const [error, setError] = useState('')
     const { mutate, isPending } = useAddTransaction()
 
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData((prev) => ({ ...prev, [name]: value }))
+        setError('')
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        const amount = Number(formData.amount)
+        if (!formData.amount || isNaN(amount)) {
+            setError('Amount must be a valid number')
+            return
+        }
+        if (!formData.merchant.trim()) {
+            setError('Merchant is required')
+            return
+        }
+        if (!formData.category.trim()) {
+            setError('Category is required')
+            return
+        }
         mutate(
-            { ...formData, amount: Number(formData.amount) },
-            {
-                onSuccess: () => {
-                    setFormData({ date: new Date().toISOString().split('T')[0], merchant: '', category: '', amount: '', note: '' })
-                }
-            }
+            { ...formData, merchant: formData.merchant.trim(), category: formData.category.trim(), amount },
+            { onSuccess: () => setFormData(emptyForm) }
         )
     }
 
@@ -98,6 +110,8 @@ const AddTransactionForm = () => {
             >
                 {isPending ? 'Adding...' : 'Add'}
             </button>
+
+            {error && <p className="w-full text-red-500 text-xs">{error}</p>}
         </form>
     )
 }

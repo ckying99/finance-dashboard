@@ -1,6 +1,8 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 const useEditTransaction = () => {
+    const queryClient = useQueryClient()
+
     return useMutation({
         mutationFn: async (updatedTransaction) => {
             const res = await fetch(`http://localhost:3001/transactions/${updatedTransaction.id}`, {
@@ -10,7 +12,10 @@ const useEditTransaction = () => {
             })
             if (!res.ok) throw new Error('Failed to edit transaction')
             return res.json()
-        }
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['transactions'] })
+        },
     })
 }
 
