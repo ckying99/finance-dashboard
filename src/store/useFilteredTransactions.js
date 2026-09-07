@@ -6,7 +6,7 @@ export function useFilteredTransactions(categories, date) {
   if (date?.to) parts.push(`date_lte=${toISO(date.to)}`)
   const params = parts.join('&')
 
-  return useQuery({q
+  return useQuery({
     queryKey: ['transactions', params],
     queryFn: () => fetch(`${import.meta.env.VITE_API_URL}/transactions?${params || ""}`).then(r => r.json()),
   })
