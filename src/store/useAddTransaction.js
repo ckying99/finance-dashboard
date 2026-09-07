@@ -5,11 +5,11 @@ const useAddTransaction = () => {
 
   return useMutation({
       mutationFn: async (newTransaction) => {
-      const res = await fetch('http://localhost:3001/transactions')
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/transactions`)
       const existing = await res.json()
       const nextId = existing.length > 0 ? Math.max(...existing.map(t => Number(t.id))) + 1 : 1
 
-      const postRes = await fetch(`http://localhost:3001/transactions/${nextId}`, {
+      const postRes = await fetch(`${import.meta.env.VITE_API_URL}/transactions/${nextId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: nextId, ...newTransaction }),

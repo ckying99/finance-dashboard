@@ -5,7 +5,7 @@ const useDeleteMutation = () => {
 
   return useMutation({
     mutationFn: (id) =>
-      fetch(`http://localhost:3001/transactions/${id}`, {
+      fetch(`${import.meta.env.VITE_API_URL}/transactions/${id}`, {
         method: 'DELETE'
       }),
     onSuccess: () => {

@@ -6,9 +6,9 @@ export function useFilteredTransactions(categories, date) {
   if (date?.to) parts.push(`date_lte=${toISO(date.to)}`)
   const params = parts.join('&')
 
-  return useQuery({
+  return useQuery({q
     queryKey: ['transactions', params],
-    queryFn: () => fetch(`http://localhost:3001/transactions?` + (params ? params : "")).then(r => r.json()),
+    queryFn: () => fetch(`${import.meta.env.VITE_API_URL}/transactions?${params || ""}`).then(r => r.json()),
   })
 }
 const toISO = (d) => d.toISOString().slice(0, 10)
